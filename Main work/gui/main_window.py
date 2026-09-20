@@ -39,3 +39,10 @@ class MainWindow(tk.Tk):
         ttk.Button(
             sidebar, text="Refresh map", command=self._refresh_map
         ).pack(fill="x", pady=4)
+
+        # The embedded map fills the rest of the window.
+        self.map_view = WebView2(self, width=880, height=700)
+        self.map_view.pack(side="right", fill="both", expand=True)
+
+        def _open_add_form(self) -> None:
+        AddListingForm(self, on_saved=self._refresh_map)
