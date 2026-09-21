@@ -53,3 +53,14 @@ def _popup_html(listing: Listing) -> str:
  
     fmap = folium.Map(location=center, zoom_start=DEFAULT_ZOOM, tiles="Esri.WorldStreetMap")
  
+     for listing in listings:
+        folium.Marker(
+            location=(listing.latitude, listing.longitude),
+            popup=folium.Popup(_popup_html(listing), max_width=300),
+            tooltip=listing.address,
+            icon=folium.Icon(color="green", icon="tree", prefix="fa"),
+        ).add_to(fmap)
+ 
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fmap.save(str(output_path))
+    return output_path
