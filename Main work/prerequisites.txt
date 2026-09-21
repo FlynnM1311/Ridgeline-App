@@ -1,0 +1,4 @@
+folium
+tkwebview2
+pythonnet
+pywebview
