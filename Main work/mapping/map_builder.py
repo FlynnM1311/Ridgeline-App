@@ -37,5 +37,19 @@ def _popup_html(listing: Listing) -> str:
         </p>
     </div>
     """
+ def build_map(
+    listings: list[Listing],
+    output_path: Path = DEFAULT_OUTPUT,
+) -> Path:
+    """Generate the folium map HTML file from the given listings.
  
+    Returns the path to the generated file so the caller can open it
+    (e.g. via webbrowser.open) or load it into an embedded webview.
+    """
+    if listings:
+        center = (listings[0].latitude, listings[0].longitude)
+    else:
+        center = DEFAULT_CENTER
+ 
+    fmap = folium.Map(location=center, zoom_start=DEFAULT_ZOOM, tiles="Esri.WorldStreetMap")
  
