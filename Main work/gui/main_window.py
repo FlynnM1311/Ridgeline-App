@@ -46,3 +46,12 @@ class MainWindow(tk.Tk):
 
         def _open_add_form(self) -> None:
         AddListingForm(self, on_saved=self._refresh_map)
+         
+    def _open_add_form(self) -> None:
+        AddListingForm(self, on_saved=self._refresh_map)
+ 
+    def _refresh_map(self) -> None:
+        """Rebuild the map from current listings and reload it in place."""
+        listings = get_all_listings()
+        map_path = build_map(listings)
+        self.map_view.load_url(map_path.resolve().as_uri())
