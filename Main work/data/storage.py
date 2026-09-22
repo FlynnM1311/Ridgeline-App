@@ -40,13 +40,9 @@ def init_db() -> None:
         )
  
  def add_listing(listing: Listing) -> int:
-    """Insert a new listing and return its id."""
     with _connect() as conn:
         cur = conn.execute(
-            """
-            INSERT INTO listings (address, email, latitude, longitude, description, acreage)
-            VALUES (?, ?, ?, ?, ?, ?)
-            """,
+,
             (
                 listing.address,
                 listing.email,
@@ -59,3 +55,24 @@ def init_db() -> None:
         return cur.lastrowid
  
  
+ 
+def get_all_listings() -> list[Listing]:
+    with _connect() as conn:
+        rows = conn.execute("SELECT * FROM listings").fetchall()
+        return [
+            Listing(
+                id=row["id"],
+                address=row["address"],
+                email=row["email"],
+                latitude=row["latitude"],
+                longitude=row["longitude"],
+                description=row["description"] or "",
+                acreage=row["acreage"],
+            )
+            for row in rows
+        ]
+ 
+ 
+def delete_listing(listing_id: int) -> None:
+    with _connect() as conn:
+        conn.execute("DELETE FROM listings WHERE id = ?", (listing_id,))
