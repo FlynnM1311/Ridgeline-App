@@ -39,4 +39,23 @@ def init_db() -> None:
             """
         )
  
+ def add_listing(listing: Listing) -> int:
+    """Insert a new listing and return its id."""
+    with _connect() as conn:
+        cur = conn.execute(
+            """
+            INSERT INTO listings (address, email, latitude, longitude, description, acreage)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                listing.address,
+                listing.email,
+                listing.latitude,
+                listing.longitude,
+                listing.description,
+                listing.acreage,
+            ),
+        )
+        return cur.lastrowid
+ 
  
