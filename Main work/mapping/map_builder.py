@@ -13,7 +13,7 @@ import folium
 from data.storage import Listing
  
 DEFAULT_OUTPUT = Path(__file__).parent.parent / "assets" / "map.html"
-DEFAULT_CENTER = (39.8283, -98.5795)  # roughly the center of the US
+DEFAULT_CENTER = (-46.411301, 168.352524)  # roughly the center of the US
 DEFAULT_ZOOM = 5
  
  

@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9284bda9d507dfb95ab894ff1a276571 {
+                #map_286d8e3719e7d387ce5d9b5a4b3b20f4 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,16 +54,16 @@
 <body>
     
     
-            <div class="folium-map" id="map_9284bda9d507dfb95ab894ff1a276571" ></div>
+            <div class="folium-map" id="map_286d8e3719e7d387ce5d9b5a4b3b20f4" ></div>
         
 </body>
 <script>
     
     
-            var map_9284bda9d507dfb95ab894ff1a276571 = L.map(
-                "map_9284bda9d507dfb95ab894ff1a276571",
+            var map_286d8e3719e7d387ce5d9b5a4b3b20f4 = L.map(
+                "map_286d8e3719e7d387ce5d9b5a4b3b20f4",
                 {
-                    center: [39.8283, -98.5795],
+                    center: [-46.380481, 168.399416],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 5,
@@ -78,7 +78,7 @@
 
         
     
-            var tile_layer_2717ec98877bb1f9ef66746dba805262 = L.tileLayer(
+            var tile_layer_4d432c74a3c237a833fc50d072a36b1c = L.tileLayer(
                 "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
@@ -95,7 +95,103 @@
             );
         
     
-            tile_layer_2717ec98877bb1f9ef66746dba805262.addTo(map_9284bda9d507dfb95ab894ff1a276571);
+            tile_layer_4d432c74a3c237a833fc50d072a36b1c.addTo(map_286d8e3719e7d387ce5d9b5a4b3b20f4);
         
+    
+            var marker_587cda8ff6a9054ed62e6fd7dd02fb44 = L.marker(
+                [-46.380481, 168.399416],
+                {
+}
+            ).addTo(map_286d8e3719e7d387ce5d9b5a4b3b20f4);
+        
+    
+            var icon_073e6ad33d2ae43ab654400aeae0eb9c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_14aadac80d1a1bbc94d5bafbad3ff95c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62b3641b835dc46b7dc3a025ef7f9e1a = $(`<div id="html_62b3641b835dc46b7dc3a025ef7f9e1a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: sans-serif; min-width: 200px;">         <b>602 Bainfield road</b>                  <p>My farmland</p>         <p>             <a href="mailto:flynnm946@gmail.com?subject=Interested in hunting your land">                 Contact landowner             </a>         </p>     </div>     </div>`)[0];
+                popup_14aadac80d1a1bbc94d5bafbad3ff95c.setContent(html_62b3641b835dc46b7dc3a025ef7f9e1a);
+            
+        
+
+        marker_587cda8ff6a9054ed62e6fd7dd02fb44.bindPopup(popup_14aadac80d1a1bbc94d5bafbad3ff95c)
+        ;
+
+        
+    
+    
+            marker_587cda8ff6a9054ed62e6fd7dd02fb44.bindTooltip(
+                `<div>
+                     602 Bainfield road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_587cda8ff6a9054ed62e6fd7dd02fb44.setIcon(icon_073e6ad33d2ae43ab654400aeae0eb9c);
+            
+    
+            var marker_28a18f1edb4e93247236180a5234fff2 = L.marker(
+                [0.0, 0.0],
+                {
+}
+            ).addTo(map_286d8e3719e7d387ce5d9b5a4b3b20f4);
+        
+    
+            var icon_62f060f79b7a3ad45316f84f35697296 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_30a99c1e45b6580d8954a697bc8d86a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02811e4298aad4a591a247765e23f06d = $(`<div id="html_02811e4298aad4a591a247765e23f06d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: sans-serif; min-width: 200px;">         <b>602 Bainfield Road Invercargill</b>                  <p>Farmland for shooting</p>         <p>             <a href="mailto:flynnm946@gmail.com?subject=Interested in hunting your land">                 Contact landowner             </a>         </p>     </div>     </div>`)[0];
+                popup_30a99c1e45b6580d8954a697bc8d86a6.setContent(html_02811e4298aad4a591a247765e23f06d);
+            
+        
+
+        marker_28a18f1edb4e93247236180a5234fff2.bindPopup(popup_30a99c1e45b6580d8954a697bc8d86a6)
+        ;
+
+        
+    
+    
+            marker_28a18f1edb4e93247236180a5234fff2.bindTooltip(
+                `<div>
+                     602 Bainfield Road Invercargill
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_28a18f1edb4e93247236180a5234fff2.setIcon(icon_62f060f79b7a3ad45316f84f35697296);
+            
 </script>
 </html>
