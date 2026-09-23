@@ -24,7 +24,7 @@ class AddListingForm(tk.Toplevel):
             ("acreage", "Acreage (optional)"),
         ]
 
-                for row, (key, label) in enumerate(labels):
+        for row, (key, label) in enumerate(labels):
             ttk.Label(self, text=label).grid(
                 row=row, column=0, sticky="w", padx=10, pady=6
             )
@@ -73,4 +73,8 @@ class AddListingForm(tk.Toplevel):
             add_listing(listing)
             self.on_saved()
             self.destroy()
+        except ValueError:
+            messagebox.showerror(
+                "Invalid input", "Latitude, longitude, and acreage must be numbers."
+            )
  
