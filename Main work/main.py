@@ -13,7 +13,7 @@ def run_app() -> None:
     if not have_runtime():
         install_runtime()
 
-            app = MainWindow()
+    app = MainWindow()
     app.mainloop()
  
  

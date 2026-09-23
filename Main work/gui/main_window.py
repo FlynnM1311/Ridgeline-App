@@ -24,7 +24,7 @@ class MainWindow(tk.Tk):
         sidebar.pack(side="left", fill="y")
         sidebar.pack_propagate(False)  # keep sidebar width fixed regardless of content
  
- ttk.Label(
+        ttk.Label(
             sidebar, text="Ridgeline", font=("Helvetica", 18, "bold")
         ).pack(pady=(0, 4), anchor="w")
         ttk.Label(
@@ -44,9 +44,6 @@ class MainWindow(tk.Tk):
         self.map_view = WebView2(self, width=880, height=700)
         self.map_view.pack(side="right", fill="both", expand=True)
 
-        def _open_add_form(self) -> None:
-        AddListingForm(self, on_saved=self._refresh_map)
-         
     def _open_add_form(self) -> None:
         AddListingForm(self, on_saved=self._refresh_map)
  

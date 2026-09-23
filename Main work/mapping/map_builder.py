@@ -19,8 +19,8 @@ DEFAULT_ZOOM = 5
  
 def _popup_html(listing: Listing) -> str:
     """Build the popup HTML for a single listing, including a mailto link.
- 
-    
+    """
+
     subject = "Interested in hunting your land"
     acreage_line = f"<p>{listing.acreage} acres</p>" if listing.acreage else ""
     description_line = f"<p>{listing.description}</p>" if listing.description else ""
@@ -37,7 +37,7 @@ def _popup_html(listing: Listing) -> str:
         </p>
     </div>
     """
- def build_map(
+def build_map(
     listings: list[Listing],
     output_path: Path = DEFAULT_OUTPUT,
 ) -> Path:
@@ -53,7 +53,7 @@ def _popup_html(listing: Listing) -> str:
  
     fmap = folium.Map(location=center, zoom_start=DEFAULT_ZOOM, tiles="Esri.WorldStreetMap")
  
-     for listing in listings:
+    for listing in listings:
         folium.Marker(
             location=(listing.latitude, listing.longitude),
             popup=folium.Popup(_popup_html(listing), max_width=300),

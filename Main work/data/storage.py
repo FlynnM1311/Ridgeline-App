@@ -39,10 +39,14 @@ def init_db() -> None:
             """
         )
  
- def add_listing(listing: Listing) -> int:
+def add_listing(listing: Listing) -> int:
     with _connect() as conn:
         cur = conn.execute(
-,
+            """
+            INSERT INTO listings (
+                address, email, latitude, longitude, description, acreage
+            ) VALUES (?, ?, ?, ?, ?, ?)
+            """,
             (
                 listing.address,
                 listing.email,
