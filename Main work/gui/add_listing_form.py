@@ -45,3 +45,32 @@ class AddListingForm(tk.Toplevel):
             row=button_row, column=0, columnspan=2, pady=12
         )
  
+  
+    def _save(self) -> None:
+        try:
+            address = self.fields["address"].get().strip()
+            email = self.fields["email"].get().strip()
+            latitude = float(self.fields["latitude"].get().strip())
+            longitude = float(self.fields["longitude"].get().strip())
+            acreage_raw = self.fields["acreage"].get().strip()
+            acreage = float(acreage_raw) if acreage_raw else None
+            description = self.description_text.get("1.0", tk.END).strip()
+ 
+            if not address or not email:
+                messagebox.showerror(
+                    "Missing info", "Address and email are required."
+                )
+                return
+ 
+            listing = Listing(
+                address=address,
+                email=email,
+                latitude=latitude,
+                longitude=longitude,
+                description=description,
+                acreage=acreage,
+            )
+            add_listing(listing)
+            self.on_saved()
+            self.destroy()
+ 
