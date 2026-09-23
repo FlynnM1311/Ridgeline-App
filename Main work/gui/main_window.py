@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
  
-from tkwebview2.tkwebview2 import WebView2
+from tkwebview import TkWebview
  
 from data.storage import get_all_listings, init_db
 from gui.add_listing_form import AddListingForm
@@ -14,6 +14,8 @@ class MainWindow(tk.Tk):
         self.title("Ridgeline")
         self.geometry("1100x700")
         self.minsize(700, 500)
+
+        self.bind_all("<Button-1>", lambda e: e.widget.focus_force())
  
         init_db()
         self._build_ui()
@@ -22,7 +24,7 @@ class MainWindow(tk.Tk):
     def _build_ui(self) -> None:
         sidebar = ttk.Frame(self, padding=16, width=220)
         sidebar.pack(side="left", fill="y")
-        sidebar.pack_propagate(False)  # keep sidebar width fixed regardless of content
+        sidebar.pack_propagate(False)  # keep sidebar width fixed
  
         ttk.Label(
             sidebar, text="Ridgeline", font=("Helvetica", 18, "bold")
@@ -41,7 +43,7 @@ class MainWindow(tk.Tk):
         ).pack(fill="x", pady=4)
 
         # The embedded map fills the rest of the window.
-        self.map_view = WebView2(self, width=880, height=700)
+        self.map_view = TkWebview(master=self)
         self.map_view.pack(side="right", fill="both", expand=True)
 
     def _open_add_form(self) -> None:
@@ -51,4 +53,4 @@ class MainWindow(tk.Tk):
         """Rebuild the map from current listings and reload it in place."""
         listings = get_all_listings()
         map_path = build_map(listings)
-        self.map_view.load_url(map_path.resolve().as_uri())
+        self.map_view.navigate(map_path.resolve().as_uri())
