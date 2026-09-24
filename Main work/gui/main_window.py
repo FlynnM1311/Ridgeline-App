@@ -5,6 +5,7 @@ from tkwebview import TkWebview
  
 from data.storage import get_all_listings, init_db
 from gui.add_listing_form import AddListingForm
+from gui.manage_listings import ManageListingsWindow
 from mapping.map_builder import build_map
 #Created main window
 
@@ -39,6 +40,9 @@ class MainWindow(tk.Tk):
             sidebar, text="Add land listing", command=self._open_add_form
         ).pack(fill="x", pady=4)
         ttk.Button(
+            sidebar, text="Manage listings", command=self._open_manage_listings
+        ).pack(fill="x", pady=4)
+        ttk.Button(
             sidebar, text="Refresh map", command=self._refresh_map
         ).pack(fill="x", pady=4)
 
@@ -48,6 +52,9 @@ class MainWindow(tk.Tk):
 
     def _open_add_form(self) -> None:
         AddListingForm(self, on_saved=self._refresh_map)
+
+    def _open_manage_listings(self) -> None:
+        ManageListingsWindow(self, on_changed=self._refresh_map)
  
     def _refresh_map(self) -> None:
         """Rebuild the map from current listings and reload it in place."""
