@@ -35,3 +35,27 @@ class ManageListingsWindow(tk.Toplevel):
         ttk.Button(
             self, text="Delete selected", command=self._delete_selected
         ).pack(pady=10)
+
+    def _reload_listbox(self) -> None:
+        self._listings = get_all_listings()
+        self.listbox.delete(0, tk.END)
+        for listing in self._listings:
+            self.listbox.insert(tk.END, f"{listing.address}  —  {listing.email}")
+
+    def _delete_selected(self) -> None:
+        selection = self.listbox.curselection()
+        if not selection:
+            messagebox.showinfo("No selection", "Select a listing first.")
+            return
+ 
+        listing = self._listings[selection[0]]
+        confirmed = messagebox.askyesno(
+            "Delete listing",
+            f"Delete the listing for {listing.address}? This can't be undone.",
+        )
+        if not confirmed:
+            return
+ 
+        delete_listing(listing.id)
+        self._reload_listbox()
+        self.on_changed()
