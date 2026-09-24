@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_3f769a82e7e69af5316d71289abb76c1 {
+                #map_7b67d94004925ec062406830e8926f06 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,16 +54,16 @@
 <body>
     
     
-            <div class="folium-map" id="map_3f769a82e7e69af5316d71289abb76c1" ></div>
+            <div class="folium-map" id="map_7b67d94004925ec062406830e8926f06" ></div>
         
 </body>
 <script>
     
     
-            var map_3f769a82e7e69af5316d71289abb76c1 = L.map(
-                "map_3f769a82e7e69af5316d71289abb76c1",
+            var map_7b67d94004925ec062406830e8926f06 = L.map(
+                "map_7b67d94004925ec062406830e8926f06",
                 {
-                    center: [-46.411301, 168.352524],
+                    center: [1.1, 1.1],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 5,
@@ -78,7 +78,7 @@
 
         
     
-            var tile_layer_0ecd1f6cd25eb8382b6a02ac62fa294e = L.tileLayer(
+            var tile_layer_137d9f5132793c753662b9ae7ba5cb80 = L.tileLayer(
                 "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
@@ -95,7 +95,55 @@
             );
         
     
-            tile_layer_0ecd1f6cd25eb8382b6a02ac62fa294e.addTo(map_3f769a82e7e69af5316d71289abb76c1);
+            tile_layer_137d9f5132793c753662b9ae7ba5cb80.addTo(map_7b67d94004925ec062406830e8926f06);
         
+    
+            var marker_2367495b291cdeff5b73ab68864ad798 = L.marker(
+                [1.1, 1.1],
+                {
+}
+            ).addTo(map_7b67d94004925ec062406830e8926f06);
+        
+    
+            var icon_32f6945b87f443b9668d1d09c360b764 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b29ffe8d1e1ef03b70f21c3cb48759ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1672fad8a2bcb4fa2a0c15506b5868b2 = $(`<div id="html_1672fad8a2bcb4fa2a0c15506b5868b2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: sans-serif; min-width: 200px;">         <b>test</b>                           <p>             <a href="mailto:64 21 104 2272?subject=Interested in hunting your land">                 Contact landowner             </a>         </p>     </div>     </div>`)[0];
+                popup_b29ffe8d1e1ef03b70f21c3cb48759ef.setContent(html_1672fad8a2bcb4fa2a0c15506b5868b2);
+            
+        
+
+        marker_2367495b291cdeff5b73ab68864ad798.bindPopup(popup_b29ffe8d1e1ef03b70f21c3cb48759ef)
+        ;
+
+        
+    
+    
+            marker_2367495b291cdeff5b73ab68864ad798.bindTooltip(
+                `<div>
+                     test
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2367495b291cdeff5b73ab68864ad798.setIcon(icon_32f6945b87f443b9668d1d09c360b764);
+            
 </script>
 </html>

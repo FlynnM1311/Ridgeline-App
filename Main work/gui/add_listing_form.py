@@ -1,8 +1,11 @@
+import re
 import tkinter as tk
 from tkinter import messagebox, ttk
 from typing import Callable
  
 from data.storage import Listing, add_listing
+
+EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 class AddListingForm(tk.Toplevel):
     def __init__(self, parent: tk.Tk, on_saved: Callable[[], None]):
@@ -59,6 +62,13 @@ class AddListingForm(tk.Toplevel):
             if not address or not email:
                 messagebox.showerror(
                     "Missing info", "Address and email are required."
+                )
+                return
+            
+            if not EMAIL_PATTERN.match(email):
+                messagebox.showerror(
+                    "Invalid email",
+                    "Enter a valid email address (e.g. name@example.com).",
                 )
                 return
  
