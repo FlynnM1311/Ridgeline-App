@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_b2fec694f7c11da7705ca5806f242b22 {
+                #map_86cc0cc73fa1cf50add119bc17890334 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,16 +54,16 @@
 <body>
     
     
-            <div class="folium-map" id="map_b2fec694f7c11da7705ca5806f242b22" ></div>
+            <div class="folium-map" id="map_86cc0cc73fa1cf50add119bc17890334" ></div>
         
 </body>
 <script>
     
     
-            var map_b2fec694f7c11da7705ca5806f242b22 = L.map(
-                "map_b2fec694f7c11da7705ca5806f242b22",
+            var map_86cc0cc73fa1cf50add119bc17890334 = L.map(
+                "map_86cc0cc73fa1cf50add119bc17890334",
                 {
-                    center: [-46.411301, 168.352524],
+                    center: [11.0, 11.0],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 5,
@@ -78,7 +78,7 @@
 
         
     
-            var tile_layer_62e83b2c0f58798b47f2b516114c2b07 = L.tileLayer(
+            var tile_layer_4cd15c3b016ea233af47fdee04bd735f = L.tileLayer(
                 "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
@@ -95,7 +95,55 @@
             );
         
     
-            tile_layer_62e83b2c0f58798b47f2b516114c2b07.addTo(map_b2fec694f7c11da7705ca5806f242b22);
+            tile_layer_4cd15c3b016ea233af47fdee04bd735f.addTo(map_86cc0cc73fa1cf50add119bc17890334);
         
+    
+            var marker_0b01c4a58ed13926d29db582d6dfc9dc = L.marker(
+                [11.0, 11.0],
+                {
+}
+            ).addTo(map_86cc0cc73fa1cf50add119bc17890334);
+        
+    
+            var icon_a937e5eeee72dbc6826be51c3b820c22 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8f643187c42010638aed979d75a521ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fa63b6d81545b09d093a8ad78f4688b = $(`<div id="html_2fa63b6d81545b09d093a8ad78f4688b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: sans-serif; min-width: 200px;">         <b>602 bainfield road</b>                  <p>life style block</p>         <p>             <a href="mailto:greg.munro@mcp.co.nz?subject=Interested in hunting your land">                 Contact landowner             </a>         </p>     </div>     </div>`)[0];
+                popup_8f643187c42010638aed979d75a521ae.setContent(html_2fa63b6d81545b09d093a8ad78f4688b);
+            
+        
+
+        marker_0b01c4a58ed13926d29db582d6dfc9dc.bindPopup(popup_8f643187c42010638aed979d75a521ae)
+        ;
+
+        
+    
+    
+            marker_0b01c4a58ed13926d29db582d6dfc9dc.bindTooltip(
+                `<div>
+                     602 bainfield road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b01c4a58ed13926d29db582d6dfc9dc.setIcon(icon_a937e5eeee72dbc6826be51c3b820c22);
+            
 </script>
 </html>
